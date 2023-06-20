@@ -1,8 +1,0 @@
-#include<stdio.h>
-int main(){
-
-  /*
-   *program that prints _putchar, followed by a new line.
-   */
-
-  

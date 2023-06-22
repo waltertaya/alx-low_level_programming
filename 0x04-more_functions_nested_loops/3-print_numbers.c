@@ -1,16 +1,18 @@
 #include "main.h"
+
 /**
-* main - check the code
-* print_numbers - function that the numbers, from 0 to 9 , folllowed by a new line
-* Return the values
+*print_numbers - print 0123456789
+* owned by Bwave ICT
+*Return: void
 */
 
 void print_numbers(void)
 {
-	
-	char c;
-	
-	for (c = '0'; c < '10'; c++)
-		_putchar(c);
+	char j;
+
+	for (j = '0'; j <= '9'; j++)
+	{
+	_putchar(j);
+	}
 	_putchar('\n');
 }

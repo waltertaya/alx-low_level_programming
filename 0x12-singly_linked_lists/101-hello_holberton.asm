@@ -1,23 +1,21 @@
-section .data
-    hello_msg db "Hello, Holberton", 0x0A, 0   ; 0x0A is the newline character
-    format db "%s", 0
+	extern	printf		; the C function, to be called
 
-section .text
-    global main
-    extern printf
+	        section .data		; Data section, initialized variables
+msg:		db "Hello, Holberton", 0 ; C string needs 0
+fmt:	    	db "%s", 10, 0          ; The printf format, "\n",'0'
 
-main:
-    ; Set up the stack frame
-    push rbp
-    mov rbp, rsp
+	        section .text		; Code section.
 
-    ; Pass the arguments to printf
-    mov rdi, format
-    mov rsi, hello_msg
+	        global main		; the standard gcc entry point
+main:					; the program label for the entry point
+	        push    rbp		; set up stack frame, must be alligned
 
-    ; Call printf
-    call printf
+		mov	rdi,fmt
+		mov	rsi,msg
+		mov	rax,0		; or can be  xor  rax,rax
+	        call    printf		; Call C function
 
-    ; Clean up and exit
-    pop rbp
-    ret
+		pop	rbp		; restore stack
+
+		mov	rax,0		; normal, no error, return value
+		ret			; return
